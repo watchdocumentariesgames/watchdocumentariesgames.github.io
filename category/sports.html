@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports Games Online | Football, Basketball, Extreme Sports & Pool</title>
+    <meta name="description" content="Compete in your favorite sports. Play realistic Soccer, Basketball, and Tennis games, or try arcade extreme sports. Free online sports games.">
+    <meta name="theme-color" content="#F06292">
+    <link rel="canonical" href="https://watchdocumentariesgames.github.io/category/sports.html" />
+    <link rel="icon" href="/favicon.ico">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="preconnect" href="https://pagead2.googlesyndication.com">
+    <style>
+        :root {
+    --primary: #F06292;
+    --secondary: #03A9F4;
+    --accent: #F9A825;
+    --dark-bg: #251B2A;
+    --dark-card: #37293E;
+    --dark-text: #F3E7F8;
+    --dark-border: #4E3B56;
+    --font-main: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+        @view-transition { navigation: auto; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: var(--font-main); background: var(--dark-bg); color: var(--dark-text); min-height: 100vh; display: flex; flex-direction: column; overflow-x: hidden; }
+        a { text-decoration: none; color: inherit; }
+        header { background: var(--dark-card); border-bottom: 1px solid var(--dark-border); position: sticky; top: 0; z-index: 100; height: 60px; display: flex; align-items: center; }
+        .top-bar { width: 100%; max-width: 1600px; margin: 0 auto; padding: 0 15px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-weight: 800; font-size: 1.4rem; color: var(--accent); letter-spacing: -0.5px; }
+        .search-wrap { position: relative; width: 100%; max-width: 400px; margin: 0 20px; }
+        .search-in { width: 100%; background: var(--dark-bg); border: 1px solid var(--dark-border); color: #fff; padding: 8px 15px 8px 40px; border-radius: 20px; font-size: 0.9rem; }
+        .search-icon { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); width: 16px; height: 16px; opacity: 0.5; }
+        .layout { display: flex; max-width: 1600px; margin: 0 auto; width: 100%; flex: 1; }
+        .sidebar { width: 240px; background: var(--dark-card); border-right: 1px solid var(--dark-border); position: sticky; top: 60px; height: calc(100vh - 60px); overflow-y: auto; flex-shrink: 0; padding: 20px 0; }
+        .main { flex: 1; padding: 20px; min-width: 0; }
+        .menu-item { display: flex; align-items: center; padding: 10px 20px; color: #aaa; font-weight: 500; font-size: 0.95rem; transition: 0.2s; }
+        .menu-item:hover { background: rgba(255,255,255,0.05); color: #fff; }
+        .menu-icon { margin-right: 12px; font-size: 1.1rem; width: 24px; text-align: center; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 15px; margin-top: 20px; }
+        .card { background: var(--dark-card); border-radius: 8px; overflow: hidden; transition: 0.2s; position: relative; }
+        .card:hover { transform: translateY(-4px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+        .card img { width: 100%; aspect-ratio: 16/9; object-fit: cover; background: #222; display: block; opacity: 0; transition: opacity 0.3s; }
+        .card img.loaded { opacity: 1; }
+        .card-title { padding: 10px; font-size: 0.9rem; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .ad-slot:not(:empty) { text-align: center; margin: 20px 0; }
+        .ad-slot:empty { display: none; }
+        .section-head { font-size: 1.8rem; color: var(--accent); margin: 20px 0; font-weight: 700; line-height: 1.2; }
+        .pagination { display: flex; justify-content: center; gap: 8px; margin: 40px 0; flex-wrap: wrap; }
+        .pagination a, .pagination span { padding: 8px 14px; background: var(--dark-card); border-radius: 6px; font-size: 0.9rem; }
+        .pagination a:hover, .pagination .current { background: var(--accent); color: #fff; }
+        .cat-desc { margin-top: 40px; color: #ccc; line-height: 1.8; padding: 2.5rem; background: var(--dark-card); border-radius: 12px; }
+        .cat-desc h2 { color: #fff; margin-top: 40px; margin-bottom: 20px; font-size: 1.8rem; }
+        .cat-desc h3 { color: #fff; margin-top: 30px; margin-bottom: 15px; font-size: 1.4rem; }
+        .cat-desc p { margin-bottom: 20px; text-align: justify; }
+        .cat-desc ul, .cat-desc ol { margin-bottom: 25px; padding-left: 20px; }
+        .cat-desc li { margin-bottom: 12px; }
+        footer { border-top: 1px solid var(--dark-border); background: var(--dark-card); padding: 40px 20px; text-align: center; margin-top: auto; content-visibility: auto; }
+        .footer-desc { margin: 0 auto 30px; max-width: 800px; color: #888; font-size: 0.95rem; line-height: 1.6; }
+        .ft-links { display: flex; justify-content: center; gap: 20px; margin-bottom: 20px; flex-wrap: wrap; }
+        .ft-links a { color: #aaa; font-size: 0.9rem; transition: color 0.2s; }
+        .ft-links a:hover { color: var(--accent); }
+        .burger { display: none; background: none; border: none; color: #fff; font-size: 1.5rem; cursor: pointer; }
+        #search-drop { position: absolute; top: 100%; left: 0; width: 100%; background: var(--dark-card); border: 1px solid var(--dark-border); border-radius: 0 0 12px 12px; max-height: 300px; overflow-y: auto; display: none; z-index: 999; box-shadow: 0 10px 40px rgba(0,0,0,0.5); }
+        #search-drop a { display: block; padding: 12px 15px; border-bottom: 1px solid var(--dark-border); font-size: 0.9rem; }
+        #search-drop a:hover { background: var(--accent); color: #fff; }
+        @media(max-width:900px) { .sidebar { position: fixed; left: -100%; z-index: 200; transition: 0.3s; width: 280px; top: 0; height: 100vh; border-right: 1px solid #333; } .sidebar.active { left: 0; } .burger { display: block; margin-right: 15px; } .search-wrap { display: none; } .grid { grid-template-columns: repeat(2, 1fr); } }
+    </style>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7305083056611385" crossorigin="anonymous"></script>
+</head>
+<body class="theme-11">
+<header>
+    <div class="top-bar">
+        <div style="display:flex;align-items:center;">
+            <button class="burger" id="burger" aria-label="Menu">&#9776;</button>
+            <a href="/" class="logo">
+    <span style="color:var(--accent); margin-right:5px; font-size:1.6rem;">📺</span>
+    <span style="font-family:'Arial Black', sans-serif; letter-spacing: -1px; text-transform:uppercase;">Watch Documentaries</span>
+    <span style="font-weight:300; opacity:0.8;">Games</span>
+</a>
+        </div>
+        <div class="search-wrap">
+            <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="text" class="search-in" id="search" placeholder="Search 586 games...">
+            <div id="search-drop"></div>
+        </div>
+    </div>
+</header>
+<div class="layout">
+    <nav class="sidebar" id="sidebar">
+        
+            <a href="/category/clicker.html" class="menu-item">
+                <span class="menu-icon">👆</span> Clicker
+            </a>
+        
+            <a href="/category/skill.html" class="menu-item">
+                <span class="menu-icon">🎯</span> Skill
+            </a>
+        
+            <a href="/category/shooter.html" class="menu-item">
+                <span class="menu-icon">🔫</span> Shooter
+            </a>
+        
+            <a href="/category/adventure.html" class="menu-item">
+                <span class="menu-icon">🌍</span> Adventure
+            </a>
+        
+            <a href="/category/kids.html" class="menu-item">
+                <span class="menu-icon">🧸</span> Kids
+            </a>
+        
+            <a href="/category/simulation.html" class="menu-item">
+                <span class="menu-icon">✈️</span> Simulation
+            </a>
+        
+            <a href="/category/multiplayer.html" class="menu-item">
+                <span class="menu-icon">👥</span> Multiplayer
+            </a>
+        
+            <a href="/category/racing.html" class="menu-item">
+                <span class="menu-icon">🏁</span> Racing
+            </a>
+        
+            <a href="/category/strategy.html" class="menu-item">
+                <span class="menu-icon">♟️</span> Strategy
+            </a>
+        
+            <a href="/category/sports.html" class="menu-item">
+                <span class="menu-icon">⚽</span> Sports
+            </a>
+        
+            <a href="/category/platformer.html" class="menu-item">
+                <span class="menu-icon">🏃</span> Platformer
+            </a>
+        
+            <a href="/category/2-player.html" class="menu-item">
+                <span class="menu-icon">🔥</span> 2 Player
+            </a>
+        
+            <a href="/category/horror.html" class="menu-item">
+                <span class="menu-icon">👻</span> Horror
+            </a>
+        
+            <a href="/category/driving.html" class="menu-item">
+                <span class="menu-icon">🏎️</span> Driving
+            </a>
+        
+            <a href="/category/action.html" class="menu-item">
+                <span class="menu-icon">⚡</span> Action
+            </a>
+        
+            <a href="/category/fighting.html" class="menu-item">
+                <span class="menu-icon">🥊</span> Fighting
+            </a>
+        
+            <a href="/category/puzzle.html" class="menu-item">
+                <span class="menu-icon">🧩</span> Puzzle
+            </a>
+        
+    </nav>
+    <main class="main">
+        <h1 class="section-head">⚽ Sports Games - Play Soccer, Basketball & Tennis</h1>
+        
+        <div class="ad-slot"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7305083056611385"
+     data-ad-slot="2698812966"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+        
+        <div class="grid">
+            
+                <div class="card">
+                    <a href="/kix-dream-soccer.html">
+                        <img src="https://watchdocumentariesgames.github.io/images/kix-dream-soccer.png" alt="Kix Dream Soccer" width="320" height="180" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
+                        <div class="card-title">Kix Dream Soccer</div>
+                    </a>
+                </div>
+            
+                <div class="card">
+                    <a href="/doodle-champion-island.html">
+                        <img src="https://watchdocumentariesgames.github.io/images/doodle-champion-island.png" alt="Doodle Champion Island" width="320" height="180" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
+                        <div class="card-title">Doodle Champion Island</div>
+                    </a>
+                </div>
+            
+                <div class="card">
+                    <a href="/football-blitz.html">
+                        <img src="https://watchdocumentariesgames.github.io/images/football-blitz.png" alt="Football Blitz" width="320" height="180" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
+                        <div class="card-title">Football Blitz</div>
+                    </a>
+                </div>
+            
+                <div class="card">
+                    <a href="/basket-random.html">
+                        <img src="https://watchdocumentariesgames.github.io/images/basket-random.png" alt="Basket Random" width="320" height="180" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
+                        <div class="card-title">Basket Random</div>
+                    </a>
+                </div>
+            
+                <div class="card">
+                    <a href="/heads-arena-soccer-all-stars.html">
+                        <img src="https://watchdocumentariesgames.github.io/images/heads-arena-soccer-all-stars.png" alt="Heads Arena Soccer All Stars" width="320" height="180" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
+                        <div class="card-title">Heads Arena Soccer All Stars</div>
+                    </a>
+                </div>
+            
+                <div class="card">
+                    <a href="/archery-world-tour.html">
+                        <img src="https://watchdocumentariesgames.github.io/images/archery-world-tour.png" alt="Archery World Tour" width="320" height="180" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
+                        <div class="card-title">Archery World Tour</div>
+                    </a>
+                </div>
+            
+                <div class="card">
+                    <a href="/golfinity.html">
+                        <img src="https://watchdocumentariesgames.github.io/images/golfinity.png" alt="Golfinity" width="320" height="180" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
+                        <div class="card-title">Golfinity</div>
+                    </a>
+                </div>
+            
+                <div class="card">
+                    <a href="/penalty-shooters-2.html">
+                        <img src="https://watchdocumentariesgames.github.io/images/penalty-shooters-2.png" alt="Penalty Shooters 2" width="320" height="180" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
+                        <div class="card-title">Penalty Shooters 2</div>
+                    </a>
+                </div>
+            
+                <div class="card">
+                    <a href="/skiing-fred.html">
+                        <img src="https://watchdocumentariesgames.github.io/images/skiing-fred.png" alt="Skiing Fred" width="320" height="180" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
+                        <div class="card-title">Skiing Fred</div>
+                    </a>
+                </div>
+            
+                <div class="card">
+                    <a href="/stickman-golf.html">
+                        <img src="https://watchdocumentariesgames.github.io/images/stickman-golf.png" alt="Stickman Golf" width="320" height="180" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
+                        <div class="card-title">Stickman Golf</div>
+                    </a>
+                </div>
+            
+                <div class="card">
+                    <a href="/dunkers.html">
+                        <img src="https://watchdocumentariesgames.github.io/images/dunkers.png" alt="Dunkers" width="320" height="180" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
+                        <div class="card-title">Dunkers</div>
+                    </a>
+                </div>
+            
+                <div class="card">
+                    <a href="/athletics-hero.html">
+                        <img src="https://watchdocumentariesgames.github.io/images/athletics-hero.png" alt="Athletics Hero" width="320" height="180" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
+                        <div class="card-title">Athletics Hero</div>
+                    </a>
+                </div>
+            
+                <div class="card">
+                    <a href="/linebacker-alley-2.html">
+                        <img src="https://watchdocumentariesgames.github.io/images/linebacker-alley-2.png" alt="Linebacker Alley 2" width="320" height="180" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
+                        <div class="card-title">Linebacker Alley 2</div>
+                    </a>
+                </div>
+            
+                <div class="card">
+                    <a href="/basketball-legends.html">
+                        <img src="https://watchdocumentariesgames.github.io/images/basketball-legends.png" alt="Basketball Legends" width="320" height="180" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
+                        <div class="card-title">Basketball Legends</div>
+                    </a>
+                </div>
+            
+                <div class="card">
+                    <a href="/soccer-random.html">
+                        <img src="https://watchdocumentariesgames.github.io/images/soccer-random.png" alt="Soccer Random" width="320" height="180" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
+                        <div class="card-title">Soccer Random</div>
+                    </a>
+                </div>
+            
+                <div class="card">
+                    <a href="/golf-champions.html">
+                        <img src="https://watchdocumentariesgames.github.io/images/golf-champions.png" alt="Golf Champions" width="320" height="180" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
+                        <div class="card-title">Golf Champions</div>
+                    </a>
+                </div>
+            
+                <div class="card">
+                    <a href="/air-hockey-championship-deluxe.html">
+                        <img src="https://watchdocumentariesgames.github.io/images/air-hockey-championship-deluxe.png" alt="Air Hockey Championship Deluxe" width="320" height="180" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
+                        <div class="card-title">Air Hockey Championship Deluxe</div>
+                    </a>
+                </div>
+            
+                <div class="card">
+                    <a href="/soccer-skills-champions-league.html">
+                        <img src="https://watchdocumentariesgames.github.io/images/soccer-skills-champions-league.png" alt="Soccer Skills Champions League" width="320" height="180" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
+                        <div class="card-title">Soccer Skills Champions League</div>
+                    </a>
+                </div>
+            
+                <div class="card">
+                    <a href="/battle-golf.html">
+                        <img src="https://watchdocumentariesgames.github.io/images/battle-golf.png" alt="Battle Golf" width="320" height="180" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
+                        <div class="card-title">Battle Golf</div>
+                    </a>
+                </div>
+            
+                <div class="card">
+                    <a href="/football-legends.html">
+                        <img src="https://watchdocumentariesgames.github.io/images/football-legends.png" alt="Football Legends" width="320" height="180" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
+                        <div class="card-title">Football Legends</div>
+                    </a>
+                </div>
+            
+                <div class="card">
+                    <a href="/volleyball-challenge.html">
+                        <img src="https://watchdocumentariesgames.github.io/images/volleyball-challenge.png" alt="Volleyball Challenge" width="320" height="180" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
+                        <div class="card-title">Volleyball Challenge</div>
+                    </a>
+                </div>
+            
+                <div class="card">
+                    <a href="/volley-random.html">
+                        <img src="https://watchdocumentariesgames.github.io/images/volley-random.png" alt="Volley Random" width="320" height="180" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
+                        <div class="card-title">Volley Random</div>
+                    </a>
+                </div>
+            
+                <div class="card">
+                    <a href="/pool-club.html">
+                        <img src="https://watchdocumentariesgames.github.io/images/pool-club.png" alt="Pool Club" width="320" height="180" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
+                        <div class="card-title">Pool Club</div>
+                    </a>
+                </div>
+            
+                <div class="card">
+                    <a href="/dunkbrush.html">
+                        <img src="https://watchdocumentariesgames.github.io/images/dunkbrush.png" alt="Dunkbrush" width="320" height="180" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
+                        <div class="card-title">Dunkbrush</div>
+                    </a>
+                </div>
+            
+                <div class="card">
+                    <a href="/basket-swooshes.html">
+                        <img src="https://watchdocumentariesgames.github.io/images/basket-swooshes.png" alt="Basket Swooshes" width="320" height="180" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
+                        <div class="card-title">Basket Swooshes</div>
+                    </a>
+                </div>
+            
+                <div class="card">
+                    <a href="/curve-ball-3d.html">
+                        <img src="https://watchdocumentariesgames.github.io/images/curve-ball-3d.png" alt="Curve Ball 3D" width="320" height="180" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
+                        <div class="card-title">Curve Ball 3D</div>
+                    </a>
+                </div>
+            
+                <div class="card">
+                    <a href="/bowling-stars.html">
+                        <img src="https://watchdocumentariesgames.github.io/images/bowling-stars.png" alt="Bowling Stars" width="320" height="180" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
+                        <div class="card-title">Bowling Stars</div>
+                    </a>
+                </div>
+            
+                <div class="card">
+                    <a href="/darts-pro.html">
+                        <img src="https://watchdocumentariesgames.github.io/images/darts-pro.png" alt="Darts Pro" width="320" height="180" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
+                        <div class="card-title">Darts Pro</div>
+                    </a>
+                </div>
+            
+                <div class="card">
+                    <a href="/unicycle-hero.html">
+                        <img src="https://watchdocumentariesgames.github.io/images/unicycle-hero.png" alt="Unicycle Hero" width="320" height="180" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
+                        <div class="card-title">Unicycle Hero</div>
+                    </a>
+                </div>
+            
+                <div class="card">
+                    <a href="/8-ball-pool.html">
+                        <img src="https://watchdocumentariesgames.github.io/images/8-ball-pool.png" alt="8 Ball Pool" width="320" height="180" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
+                        <div class="card-title">8 Ball Pool</div>
+                    </a>
+                </div>
+            
+                <div class="card">
+                    <a href="/4th-and-goal-2022.html">
+                        <img src="https://watchdocumentariesgames.github.io/images/4th-and-goal-2022.png" alt="4th and Goal 2022" width="320" height="180" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
+                        <div class="card-title">4th and Goal 2022</div>
+                    </a>
+                </div>
+            
+                <div class="card">
+                    <a href="/retro-bowl.html">
+                        <img src="https://watchdocumentariesgames.github.io/images/retro-bowl.png" alt="Retro Bowl" width="320" height="180" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
+                        <div class="card-title">Retro Bowl</div>
+                    </a>
+                </div>
+            
+                <div class="card">
+                    <a href="/super-bike-the-champion.html">
+                        <img src="https://watchdocumentariesgames.github.io/images/super-bike-the-champion.png" alt="Super Bike The Champion" width="320" height="180" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
+                        <div class="card-title">Super Bike The Champion</div>
+                    </a>
+                </div>
+            
+                <div class="card">
+                    <a href="/rowdy-wrestling.html">
+                        <img src="https://watchdocumentariesgames.github.io/images/rowdy-wrestling.png" alt="Rowdy Wrestling" width="320" height="180" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
+                        <div class="card-title">Rowdy Wrestling</div>
+                    </a>
+                </div>
+            
+                <div class="card">
+                    <a href="/a-small-world-cup.html">
+                        <img src="https://watchdocumentariesgames.github.io/images/a-small-world-cup.png" alt="A Small World Cup" width="320" height="180" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
+                        <div class="card-title">A Small World Cup</div>
+                    </a>
+                </div>
+            
+                <div class="card">
+                    <a href="/cricket-world-cup.html">
+                        <img src="https://watchdocumentariesgames.github.io/images/cricket-world-cup.png" alt="Cricket World Cup" width="320" height="180" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
+                        <div class="card-title">Cricket World Cup</div>
+                    </a>
+                </div>
+            
+                <div class="card">
+                    <a href="/basket-champs.html">
+                        <img src="https://watchdocumentariesgames.github.io/images/basket-champs.png" alt="Basket Champs" width="320" height="180" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
+                        <div class="card-title">Basket Champs</div>
+                    </a>
+                </div>
+            
+                <div class="card">
+                    <a href="/football-penalty-champions.html">
+                        <img src="https://watchdocumentariesgames.github.io/images/football-penalty-champions.png" alt="Football Penalty Champions" width="320" height="180" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
+                        <div class="card-title">Football Penalty Champions</div>
+                    </a>
+                </div>
+            
+                <div class="card">
+                    <a href="/grand-prix-hero.html">
+                        <img src="https://watchdocumentariesgames.github.io/images/grand-prix-hero.png" alt="Grand Prix Hero" width="320" height="180" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
+                        <div class="card-title">Grand Prix Hero</div>
+                    </a>
+                </div>
+            
+                <div class="card">
+                    <a href="/super-mx-the-champion.html">
+                        <img src="https://watchdocumentariesgames.github.io/images/super-mx-the-champion.png" alt="Super MX The Champion" width="320" height="180" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
+                        <div class="card-title">Super MX The Champion</div>
+                    </a>
+                </div>
+            
+                <div class="card">
+                    <a href="/rocket-soccer-derby.html">
+                        <img src="https://watchdocumentariesgames.github.io/images/rocket-soccer-derby.png" alt="Rocket Soccer Derby" width="320" height="180" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
+                        <div class="card-title">Rocket Soccer Derby</div>
+                    </a>
+                </div>
+            
+                <div class="card">
+                    <a href="/peppa-pig-basketball.html">
+                        <img src="https://watchdocumentariesgames.github.io/images/peppa-pig-basketball.png" alt="Peppa Pig Basketball" width="320" height="180" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
+                        <div class="card-title">Peppa Pig Basketball</div>
+                    </a>
+                </div>
+            
+                <div class="card">
+                    <a href="/boxing-random.html">
+                        <img src="https://watchdocumentariesgames.github.io/images/boxing-random.png" alt="Boxing Random" width="320" height="180" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
+                        <div class="card-title">Boxing Random</div>
+                    </a>
+                </div>
+            
+                <div class="card">
+                    <a href="/court-kings-3d.html">
+                        <img src="https://watchdocumentariesgames.github.io/images/court-kings-3d.png" alt="Court Kings 3D" width="320" height="180" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
+                        <div class="card-title">Court Kings 3D</div>
+                    </a>
+                </div>
+            
+                <div class="card">
+                    <a href="/football-masters.html">
+                        <img src="https://watchdocumentariesgames.github.io/images/football-masters.png" alt="Football Masters" width="320" height="180" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
+                        <div class="card-title">Football Masters</div>
+                    </a>
+                </div>
+            
+                <div class="card">
+                    <a href="/stickman-boxing-ko-champion.html">
+                        <img src="https://watchdocumentariesgames.github.io/images/stickman-boxing-ko-champion.png" alt="Stickman Boxing KO Champion" width="320" height="180" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
+                        <div class="card-title">Stickman Boxing KO Champion</div>
+                    </a>
+                </div>
+            
+                <div class="card">
+                    <a href="/dunk-perfect.html">
+                        <img src="https://watchdocumentariesgames.github.io/images/dunk-perfect.png" alt="Dunk Perfect" width="320" height="180" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
+                        <div class="card-title">Dunk Perfect</div>
+                    </a>
+                </div>
+            
+                <div class="card">
+                    <a href="/blumgi-ball.html">
+                        <img src="https://watchdocumentariesgames.github.io/images/blumgi-ball.png" alt="Blumgi Ball" width="320" height="180" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
+                        <div class="card-title">Blumgi Ball</div>
+                    </a>
+                </div>
+            
+                <div class="card">
+                    <a href="/wrassling.html">
+                        <img src="https://watchdocumentariesgames.github.io/images/wrassling.png" alt="Wrassling" width="320" height="180" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
+                        <div class="card-title">Wrassling</div>
+                    </a>
+                </div>
+            
+                <div class="card">
+                    <a href="/head-soccer-2023.html">
+                        <img src="https://watchdocumentariesgames.github.io/images/head-soccer-2023.png" alt="Head Soccer 2023" width="320" height="180" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
+                        <div class="card-title">Head Soccer 2023</div>
+                    </a>
+                </div>
+            
+                <div class="card">
+                    <a href="/little-master-cricket.html">
+                        <img src="https://watchdocumentariesgames.github.io/images/little-master-cricket.png" alt="Little Master Cricket" width="320" height="180" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
+                        <div class="card-title">Little Master Cricket</div>
+                    </a>
+                </div>
+            
+                <div class="card">
+                    <a href="/street-ball-jam.html">
+                        <img src="https://watchdocumentariesgames.github.io/images/street-ball-jam.png" alt="Street Ball Jam" width="320" height="180" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
+                        <div class="card-title">Street Ball Jam</div>
+                    </a>
+                </div>
+            
+                <div class="card">
+                    <a href="/power-badminton.html">
+                        <img src="https://watchdocumentariesgames.github.io/images/power-badminton.png" alt="Power Badminton" width="320" height="180" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
+                        <div class="card-title">Power Badminton</div>
+                    </a>
+                </div>
+            
+                <div class="card">
+                    <a href="/free-kick-shooter.html">
+                        <img src="https://watchdocumentariesgames.github.io/images/free-kick-shooter.png" alt="Free Kick Shooter" width="320" height="180" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
+                        <div class="card-title">Free Kick Shooter</div>
+                    </a>
+                </div>
+            
+                <div class="card">
+                    <a href="/tricks.html">
+                        <img src="https://watchdocumentariesgames.github.io/images/tricks.png" alt="Tricks" width="320" height="180" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
+                        <div class="card-title">Tricks</div>
+                    </a>
+                </div>
+            
+                <div class="card">
+                    <a href="/sumo-party.html">
+                        <img src="https://watchdocumentariesgames.github.io/images/sumo-party.png" alt="Sumo Party" width="320" height="180" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
+                        <div class="card-title">Sumo Party</div>
+                    </a>
+                </div>
+            
+                <div class="card">
+                    <a href="/ping-pong-chaos.html">
+                        <img src="https://watchdocumentariesgames.github.io/images/ping-pong-chaos.png" alt="Ping Pong Chaos" width="320" height="180" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
+                        <div class="card-title">Ping Pong Chaos</div>
+                    </a>
+                </div>
+            
+                <div class="card">
+                    <a href="/big-shot-boxing.html">
+                        <img src="https://watchdocumentariesgames.github.io/images/big-shot-boxing.png" alt="Big Shot Boxing" width="320" height="180" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
+                        <div class="card-title">Big Shot Boxing</div>
+                    </a>
+                </div>
+            
+                <div class="card">
+                    <a href="/bouncy-basketball.html">
+                        <img src="https://watchdocumentariesgames.github.io/images/bouncy-basketball.png" alt="Bouncy Basketball" width="320" height="180" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
+                        <div class="card-title">Bouncy Basketball</div>
+                    </a>
+                </div>
+            
+                <div class="card">
+                    <a href="/bumper-cars-soccer.html">
+                        <img src="https://watchdocumentariesgames.github.io/images/bumper-cars-soccer.png" alt="Bumper Cars Soccer" width="320" height="180" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
+                        <div class="card-title">Bumper Cars Soccer</div>
+                    </a>
+                </div>
+            
+        </div>
+
+        
+        <div class="pagination">
+            
+            
+                
+                    <span class="current">1</span>
+                
+            
+                
+                    <a href="/category/sports-page-2.html">2</a>
+                
+            
+            
+                <a href="/category/sports-page-2.html">&raquo;</a>
+            
+        </div>
+        
+
+        <div class="cat-desc"><div class="category-content">
+    <h2>⚽ Digital Athletics: The World of Sports Games</h2>
+    <p><strong>Sports Games</strong> bridge the gap between physical athleticism and digital strategy. They allow fans to take control of their favorite teams and athletes, rewriting history on the virtual field. In 2025, this genre has diversified into two distinct paths: hyper-realistic <strong>Simulations</strong> that mimic TV broadcasts, and high-energy <strong>Arcade</strong> titles that focus on fun over physics. Whether you are a fan of Football (Soccer), Basketball, or niche extreme sports, the competitive spirit is the same.</p>
+
+    <h3>🎮 Game IQ vs. Stick Skills</h3>
+    <p>Winning in sports games requires a dual skillset:</p>
+    <ul>
+        <li><strong>Stick Skills (Mechanics):</strong> The ability to execute moves. Timing the release of a basketball shot, aiming a penalty kick, or serving an ace in tennis. This is pure hand-eye coordination.</li>
+        <li><strong>Game IQ (Strategy):</strong> Understanding the sport itself. Recognizing an offside trap, calling the right play in American Football, or managing your team's stamina and substitutions. The AI in modern browser games adapts to your tactics, forcing you to think like a coach.</li>
+    </ul>
+
+    <h3>🌍 A Global Arena of Disciplines</h3>
+    <p>Our Sports category mirrors the Olympics in its variety:</p>
+    <ul>
+        <li><strong>Team Sports:</strong> Soccer, Basketball, Hockey. These rely on AI teamwork. You control one player while the computer positions the rest. Success depends on passing and spacing.</li>
+        <li><strong>Racquet Sports:</strong> Tennis, Badminton, Table Tennis. Fast-paced duels that test reaction speed and geometry (angles of reflection).</li>
+        <li><strong>Precision Sports:</strong> Golf, Billiards/Pool, Bowling. These are essentially physics puzzles. You must calculate power, spin, and friction to achieve the desired result.</li>
+        <li><strong>Extreme Sports:</strong> Skateboarding, Snowboarding, BMX. These are "Style" games where chaining tricks together (combos) multiplies your score.</li>
+    </ul>
+
+    <h3>🏆 The Thrill of the Buzzer Beater</h3>
+    <p>Sports games uniquely capture the drama of the final second. Scoring a goal in stoppage time or hitting a 3-pointer at the buzzer provides an emotional high unmatched by other genres. Lace up your virtual boots, grab your controller, and lead your team to glory in our <strong>Sports Games</strong> collection.</p>
+</div></div>
+    </main>
+</div>
+<footer>
+    <div class="ft-links">
+        <a href="/privacy-policy.html">Privacy</a>
+        <a href="/contact.html">Contact</a>
+        <a href="/dmca.html">DMCA</a>
+    </div>
+    <p class="footer-desc">Dive into Watch Documentaries Games: the premier platform for unblocked simulation and strategy. Play instantly on Chromebooks with zero downloads.</p>
+    <p>&copy; 2025 Watch Documentaries Games.</p>
+    <div style="margin-top:20px;opacity:0.5"><!--LiveInternet counter--><a href="https://www.liveinternet.ru/click" target="_blank"><img id="licnt51DC" width="0" height="0" style="border:0" title="LiveInternet" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7" alt=""></a><script>(function(d,s){d.getElementById("licnt51DC").src=
+"https://counter.yadro.ru/hit?t45.1;r"+escape(d.referrer)+
+((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+(s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+";h"+escape(d.title.substring(0,150))+";"+Math.random()})
+(document,screen)</script><!--/LiveInternet--></div>
+</footer>
+<script>
+    if('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js');
+    document.getElementById('burger').onclick=()=>document.getElementById('sidebar').classList.toggle('active');
+    const search=document.getElementById('search'), box=document.getElementById('search-drop');
+    let idx=null;
+    const loadS=async()=>{if(!idx){idx=await(await fetch('/search.json')).json()}};
+    search.onfocus=loadS;
+    search.oninput=()=>{
+        const v=search.value.toLowerCase().trim();
+        box.innerHTML=''; box.style.display=v.length>1?'block':'none';
+        if(!idx||v.length<2)return;
+        const r=idx.filter(g=>g.t.toLowerCase().includes(v)).slice(0,8);
+        r.forEach(g=>{const a=document.createElement('a');a.href='/'+(g.i)+(true?'.html':'/');a.textContent=g.t;box.appendChild(a)});
+        if(!r.length)box.innerHTML='<div style="padding:10px;text-align:center;color:#777">No results</div>';
+    };
+    document.onclick=e=>{if(!search.contains(e.target))box.style.display='none'};
+</script>
+</body>
+</html>

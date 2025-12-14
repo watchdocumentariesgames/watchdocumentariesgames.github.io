@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://watchdocumentariesgames.github.io/sitemap.xml

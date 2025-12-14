@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2048 Watermelon — Hybrid Mechanics & Spatial Planning</title>
+    <meta name="description" content="The viral sensation explained. 2048 Watermelon combines number logic with fruit physics. Analyze drop strategies and dead-zone management. Play unblocked.">
+    <meta name="theme-color" content="#F06292">
+    <link rel="canonical" href="https://watchdocumentariesgames.github.io/2048-watermelon.html" />
+    <link rel="icon" href="/favicon.ico">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="preconnect" href="https://iframe.unblocked-76-games.org">
+    <link rel="preconnect" href="https://pagead2.googlesyndication.com">
+    <script type="speculationrules">{"prerender":[{"source":"document","where":{"and":[{"href_matches":"/*"}]}}]}</script>
+    <meta property="og:title" content="2048 Watermelon — Hybrid Mechanics & Spatial Planning" />
+    <meta property="og:description" content="The viral sensation explained. 2048 Watermelon combines number logic with fruit physics. Analyze drop strategies and dead-zone management. Play unblocked." />
+    <meta property="og:url" content="https://watchdocumentariesgames.github.io/2048-watermelon.html" />
+    <meta property="og:image" content="https://watchdocumentariesgames.github.io/images/2048-watermelon.png" />
+    <meta property="og:type" content="website" />
+    <script type="application/ld+json">
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "Game",
+        "name": "2048 Watermelon",
+        "description": "The viral sensation explained. 2048 Watermelon combines number logic with fruit physics. Analyze drop strategies and dead-zone management. Play unblocked.",
+        "image": "https://watchdocumentariesgames.github.io/images/2048-watermelon.png",
+        "url": "https://watchdocumentariesgames.github.io/2048-watermelon.html",
+        "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.8", "ratingCount": "9100", "bestRating": "5", "worstRating": "1" },
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+          "@type": "ListItem", "position": 1, "name": "Home", "item": "https://watchdocumentariesgames.github.io/"
+        },{
+          "@type": "ListItem", "position": 2, "name": "Puzzle", "item": "https://watchdocumentariesgames.github.io/category/puzzle.html"
+        },{
+          "@type": "ListItem", "position": 3, "name": "2048 Watermelon"
+        }]
+      }
+    ]
+    </script>
+    <style>
+        :root {
+    --primary: #F06292;
+    --secondary: #03A9F4;
+    --accent: #F9A825;
+    --dark-bg: #251B2A;
+    --dark-card: #37293E;
+    --dark-text: #F3E7F8;
+    --dark-border: #4E3B56;
+    --font-main: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+        @view-transition { navigation: auto; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: var(--font-main); background: var(--dark-bg); color: var(--dark-text); min-height: 100vh; display: flex; flex-direction: column; overflow-x: hidden; }
+        a { text-decoration: none; color: inherit; }
+        .skip-link { position: absolute; top: -50px; left: 0; background: var(--accent); padding: 10px; z-index: 9999; }
+        .skip-link:focus { top: 0; }
+        header { background: var(--dark-card); border-bottom: 1px solid var(--dark-border); position: sticky; top: 0; z-index: 100; height: 60px; display: flex; align-items: center; }
+        .top-bar { width: 100%; max-width: 1600px; margin: 0 auto; padding: 0 15px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-weight: 800; font-size: 1.4rem; color: var(--accent); letter-spacing: -0.5px; }
+        .search-wrap { position: relative; width: 100%; max-width: 400px; margin: 0 20px; }
+        .search-in { width: 100%; background: var(--dark-bg); border: 1px solid var(--dark-border); color: #fff; padding: 8px 15px 8px 40px; border-radius: 20px; font-size: 0.9rem; }
+        .search-icon { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); width: 16px; height: 16px; opacity: 0.5; }
+        .layout { display: flex; max-width: 1600px; margin: 0 auto; width: 100%; flex: 1; }
+        .sidebar { width: 240px; background: var(--dark-card); border-right: 1px solid var(--dark-border); position: sticky; top: 60px; height: calc(100vh - 60px); overflow-y: auto; flex-shrink: 0; padding: 20px 0; }
+        .main { flex: 1; padding: 20px; min-width: 0; }
+        .menu-item { display: flex; align-items: center; padding: 10px 20px; color: #aaa; font-weight: 500; font-size: 0.95rem; transition: 0.2s; }
+        .menu-item:hover { background: rgba(255,255,255,0.05); color: #fff; }
+        .menu-icon { margin-right: 12px; font-size: 1.1rem; width: 24px; text-align: center; }
+        .game-frame-box { background: #000; border-radius: 12px; overflow: hidden; position: relative; aspect-ratio: 16/9; box-shadow: 0 10px 30px rgba(0,0,0,0.3); margin-bottom: 20px; }
+        .game-frame { width: 100%; height: 100%; border: none; }
+        .overlay { position: absolute; inset: 0; background-size: cover; background-position: center; z-index: 2; display: flex; align-items: center; justify-content: center; }
+        .overlay::before { content:''; position: absolute; inset: 0; background: rgba(0,0,0,0.6); backdrop-filter: blur(5px); }
+        .play-btn { width: 90px; height: 90px; background: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; position: relative; box-shadow: 0 0 25px rgba(255, 112, 67, 0.5); cursor: pointer; transition: 0.2s; }
+        .play-btn:hover { transform: scale(1.1); }
+        .play-btn svg { width: 40px; height: 40px; fill: #fff; margin-left: 5px; }
+        .controls { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; background: var(--dark-card); padding: 15px; border-radius: 8px; }
+        .breadcrumbs { font-size: 0.85rem; color: #888; }
+        .breadcrumbs span { margin: 0 5px; opacity: 0.5; }
+        .breadcrumbs a:hover { color: var(--accent); }
+        .btn-act { background: #333; color: #fff; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 0.9rem; font-weight: 600; }
+        .btn-act:hover { background: var(--accent); }
+        .info-box { background: var(--dark-card); padding: 2rem; border-radius: 12px; margin-bottom: 30px; line-height: 1.8; color: #ccc; }
+        .game-header { display: flex; gap: 30px; margin-bottom: 30px; border-bottom: 1px solid var(--dark-border); padding-bottom: 30px; }
+        .game-header-img { width: 140px; height: 140px; border-radius: 15px; object-fit: cover; flex-shrink: 0; box-shadow: 0 5px 20px rgba(0,0,0,0.3); }
+        .game-header-info { display: flex; flex-direction: column; justify-content: center; }
+        .game-header-info h1 { font-size: 2.2rem; color: #fff; margin: 0 0 10px 0; line-height: 1.1; }
+        .game-meta { font-size: 0.95rem; color: #888; display: flex; flex-wrap: wrap; gap: 15px; align-items: center; }
+        .game-rating { display: flex; align-items: center; gap: 5px; color: #FFD700; font-weight: bold; }
+        .game-cat-badge { background: rgba(255,255,255,0.1); padding: 4px 10px; border-radius: 4px; color: #ddd; font-size: 0.85rem; }
+        .game-content-text h2 { color: #fff; margin-top: 40px; margin-bottom: 20px; font-size: 1.6rem; }
+        .game-content-text h3 { color: #fff; margin-top: 30px; margin-bottom: 15px; font-size: 1.3rem; }
+        .game-content-text p { margin-bottom: 20px; text-align: justify; }
+        .game-content-text ul { margin-bottom: 25px; padding-left: 20px; }
+        .game-content-text li { margin-bottom: 10px; }
+        .game-content-text > *:first-child { margin-top: 0 !important; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 15px; margin-top: 20px; }
+        .card { background: var(--dark-card); border-radius: 8px; overflow: hidden; transition: 0.2s; position: relative; }
+        .card:hover { transform: translateY(-4px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+        .card img { width: 100%; aspect-ratio: 16/9; object-fit: cover; background: #222; display: block; opacity: 0; transition: opacity 0.3s; }
+        .card img.loaded { opacity: 1; }
+        .card-title { padding: 10px; font-size: 0.9rem; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .ad-slot:not(:empty) { text-align: center; margin: 20px 0; }
+        .ad-slot.game-top:not(:empty) { background: var(--dark-card); padding: 65px 0 55px 0; border-radius: 8px; }
+        .ad-slot:empty { display: none; }
+        .section-head { font-size: 1.4rem; color: var(--accent); margin: 40px 0 20px; font-weight: 700; display: flex; align-items: center; gap: 10px; }
+        footer { border-top: 1px solid var(--dark-border); background: var(--dark-card); padding: 40px 20px; text-align: center; margin-top: auto; content-visibility: auto; }
+        .footer-desc { margin: 0 auto 30px; max-width: 800px; color: #888; font-size: 0.95rem; line-height: 1.6; }
+        .ft-links { display: flex; justify-content: center; gap: 20px; margin-bottom: 20px; flex-wrap: wrap; }
+        .ft-links a { color: #aaa; font-size: 0.9rem; transition: color 0.2s; }
+        .ft-links a:hover { color: var(--accent); }
+        .burger { display: none; background: none; border: none; color: #fff; font-size: 1.5rem; cursor: pointer; }
+        #search-drop { position: absolute; top: 100%; left: 0; width: 100%; background: var(--dark-card); border: 1px solid var(--dark-border); border-radius: 0 0 12px 12px; max-height: 300px; overflow-y: auto; display: none; z-index: 999; box-shadow: 0 10px 40px rgba(0,0,0,0.5); }
+        #search-drop a { display: block; padding: 12px 15px; border-bottom: 1px solid var(--dark-border); font-size: 0.9rem; }
+        #search-drop a:hover { background: var(--accent); color: #fff; }
+        @media(max-width:900px) { 
+            .sidebar { position: fixed; left: -100%; z-index: 200; transition: 0.3s; width: 280px; top: 0; height: 100vh; border-right: 1px solid #333; } 
+            .sidebar.active { left: 0; } 
+            .burger { display: block; margin-right: 15px; } 
+            .search-wrap { display: none; } 
+            .grid { grid-template-columns: repeat(2, 1fr); }
+            .game-header { flex-direction: column; align-items: center; text-align: center; gap: 15px; }
+            .game-meta { justify-content: center; }
+        }
+    </style>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7305083056611385" crossorigin="anonymous"></script>
+</head>
+<body class="theme-11">
+<a href="#content" class="skip-link">Skip to content</a>
+<header>
+    <div class="top-bar">
+        <div style="display:flex;align-items:center;">
+            <button class="burger" id="burger" aria-label="Menu">&#9776;</button>
+            <a href="/" class="logo">
+    <span style="color:var(--accent); margin-right:5px; font-size:1.6rem;">📺</span>
+    <span style="font-family:'Arial Black', sans-serif; letter-spacing: -1px; text-transform:uppercase;">Watch Documentaries</span>
+    <span style="font-weight:300; opacity:0.8;">Games</span>
+</a>
+        </div>
+        <div class="search-wrap">
+            <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="text" class="search-in" id="search" placeholder="Search 586 games...">
+            <div id="search-drop"></div>
+        </div>
+    </div>
+</header>
+<div class="layout">
+    <nav class="sidebar" id="sidebar">
+        
+            <a href="/category/clicker.html" class="menu-item">
+                <span class="menu-icon">👆</span> Clicker
+            </a>
+        
+            <a href="/category/skill.html" class="menu-item">
+                <span class="menu-icon">🎯</span> Skill
+            </a>
+        
+            <a href="/category/shooter.html" class="menu-item">
+                <span class="menu-icon">🔫</span> Shooter
+            </a>
+        
+            <a href="/category/adventure.html" class="menu-item">
+                <span class="menu-icon">🌍</span> Adventure
+            </a>
+        
+            <a href="/category/kids.html" class="menu-item">
+                <span class="menu-icon">🧸</span> Kids
+            </a>
+        
+            <a href="/category/simulation.html" class="menu-item">
+                <span class="menu-icon">✈️</span> Simulation
+            </a>
+        
+            <a href="/category/multiplayer.html" class="menu-item">
+                <span class="menu-icon">👥</span> Multiplayer
+            </a>
+        
+            <a href="/category/racing.html" class="menu-item">
+                <span class="menu-icon">🏁</span> Racing
+            </a>
+        
+            <a href="/category/strategy.html" class="menu-item">
+                <span class="menu-icon">♟️</span> Strategy
+            </a>
+        
+            <a href="/category/sports.html" class="menu-item">
+                <span class="menu-icon">⚽</span> Sports
+            </a>
+        
+            <a href="/category/platformer.html" class="menu-item">
+                <span class="menu-icon">🏃</span> Platformer
+            </a>
+        
+            <a href="/category/2-player.html" class="menu-item">
+                <span class="menu-icon">🔥</span> 2 Player
+            </a>
+        
+            <a href="/category/horror.html" class="menu-item">
+                <span class="menu-icon">👻</span> Horror
+            </a>
+        
+            <a href="/category/driving.html" class="menu-item">
+                <span class="menu-icon">🏎️</span> Driving
+            </a>
+        
+            <a href="/category/action.html" class="menu-item">
+                <span class="menu-icon">⚡</span> Action
+            </a>
+        
+            <a href="/category/fighting.html" class="menu-item">
+                <span class="menu-icon">🥊</span> Fighting
+            </a>
+        
+            <a href="/category/puzzle.html" class="menu-item">
+                <span class="menu-icon">🧩</span> Puzzle
+            </a>
+        
+    </nav>
+    <main class="main" id="content">
+        <div class="ad-slot game-top"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle" style="display: inline-block; min-width: 580px; max-width: 580px; width: 580px; height: 400px;" data-ad-client="ca-pub-7305083056611385" data-ad-slot="2698812966"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+        
+        <div class="game-frame-box" id="frameBox">
+             <div class="overlay" id="overlay" style="background-image: url('https://watchdocumentariesgames.github.io/images/2048-watermelon.png');">
+                <div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+            </div>
+            <iframe class="game-frame" data-src="https://iframe.unblocked-76-games.org/2048-watermelon-main" id="frame" allowfullscreen sandbox="allow-scripts allow-same-origin allow-pointer-lock"></iframe>
+        </div>
+
+        <div class="controls">
+             <div class="breadcrumbs">
+                <a href="/">Home</a> <span>/</span> <a href="/category/puzzle.html">Puzzle</a> <span>/</span> 2048 Watermelon
+            </div>
+            <div style="display:flex;gap:10px;">
+                <button class="btn-act" id="share" aria-label="Share game"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg> Share</button>
+                <button class="btn-act" id="fs" aria-label="Toggle fullscreen"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg> Fullscreen</button>
+            </div>
+        </div>
+
+        <div class="ad-slot"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7305083056611385" data-ad-slot="6031553318" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+
+        <article class="info-box">
+            <div class="game-header">
+                <img src="https://watchdocumentariesgames.github.io/images/2048-watermelon.png" alt="2048 Watermelon" class="game-header-img" width="140" height="140" loading="lazy" decoding="async">
+                <div class="game-header-info">
+                    <h1>2048 Watermelon</h1>
+                    <div class="game-meta">
+                        
+                             
+                                <span class="game-cat-badge" style="text-transform: capitalize;">Puzzle</span>
+                            
+                                <span class="game-cat-badge" style="text-transform: capitalize;">Strategy</span>
+                            
+                                <span class="game-cat-badge" style="text-transform: capitalize;">Skill</span>
+                            
+                        
+
+                         
+                            <div class="game-rating">
+                                <span>⭐</span> 4.8 <span style="font-weight:normal;font-size:0.8rem;color:#666">(9100 votes)</span>
+                             </div>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-content-text">
+                 <div class="game-content">
+    <h2>🍉 2048 Watermelon: Hybrid Mechanics & Spatial Planning</h2>
+    <p><strong>2048 Watermelon</strong> is a variation of the <em>Suika Game</em> phenomenon that often explicitly overlays numbers (2, 4, 8...) onto the fruit visuals, bridging the visual gap for fans of the original logic puzzle. It serves as a masterclass in <strong>Spatial Planning within Chaos</strong>. Unlike the clean math of standard 2048, <em>2048 Watermelon</em> forces players to contend with <strong>Irregular Geometry</strong>—circles do not pack as efficiently as squares.</p>
+    <p>The core conflict is between <strong>Gravity and Order</strong>. You want to organize your board from high to low, but gravity wants to settle the heaviest objects at the lowest point. Fighting this natural tendency requires precise drop placement.</p>
+
+    <h2>🎯 Drop Mechanics & The Dead Zone</h2>
+    <p>Every pixel of the drop zone matters:
+    <ul>
+        <li><strong>Nudging:</strong> Players can nudge a fruit slightly left or right before dropping. This allows for "spin" or angular momentum upon impact, helping a fruit roll into a specific pocket.</li>
+        <li><strong>The Dead Zone:</strong> The corners of the box are dead zones. A small fruit trapped in a corner under a large fruit is effectively dead. It cannot be reached. Avoiding placing "trash" (Cherries/Strawberries) in the corners is vital for long runs.</li>
+    </ul>
+
+    <h2>🔄 Chain Reactions</h2>
+    <p>The highest scores come from <strong>Domino Merges</strong>.
+    <ul>
+        <li><strong>Setup:</strong> You place two Apples near each other, but separated by a Pear.</li>
+        <li><strong>Trigger:</strong> You merge two Pears. The resulting Apple fills the space, merging with the two waiting Apples.</li>
+        <li><strong>Payoff:</strong> This single drop triggers three evolutions. Understanding how the <em>size expansion</em> of a merge affects neighbors is the key to setting up these chains.</li>
+    </ul>
+
+    <h2>🏆 Strategy: Patience is a Mechanic</h2>
+    <p><strong>Settling Time:</strong> The physics engine is always active. After a drop, fruits may rock back and forth. <strong>Do not drop the next fruit immediately.</strong> Wait for the board to reach equilibrium. Often, a fruit will roll into a merge on its own if given 2-3 seconds. Rushing prevents these "free" merges and clutters the board.</p>
+
+    <h3>Why is 2048 Watermelon so addictive?</h3>
+    <p>It exploits the "Zeigarnik Effect"—the brain's desire to complete unfinished tasks. Seeing two half-melons touching but not merging creates psychological tension that demands resolution (the next drop), keeping players engaged for hours.</p>
+    <hr style="margin: 40px 0; border-color: var(--dark-border);">
+    <h2>❓ FAQ</h2>
+    <div class="faq-item"><h3>Is there a time limit in 2048 Watermelon?</h3><p>No, there is no timer. The only limit is the container space. Take as long as you need to calculate the physics of the next drop.</p></div>
+    <div class="faq-item"><h3>Can I shake the box?</h3><p>No, standard versions do not allow shaking. You must rely on the impact of falling fruits to shift the pile.</p></div>
+</div>
+            </div>
+        </article>
+
+        <div class="section-head">Similar Games</div>
+        <div class="grid">
+            
+                <div class="card">
+                     <a href="/curve-ball-3d.html">
+                        <img src="https://watchdocumentariesgames.github.io/images/curve-ball-3d.png" alt="Curve Ball 3D" width="320" height="180" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
+                        <div class="card-title">Curve Ball 3D</div>
+                     </a>
+                </div>
+            
+                <div class="card">
+                     <a href="/duck-life-2.html">
+                        <img src="https://watchdocumentariesgames.github.io/images/duck-life-2.png" alt="Duck Life 2" width="320" height="180" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
+                        <div class="card-title">Duck Life 2</div>
+                     </a>
+                </div>
+            
+                <div class="card">
+                     <a href="/moto-x3m-spooky-land.html">
+                        <img src="https://watchdocumentariesgames.github.io/images/moto-x3m-spooky-land.png" alt="Moto X3M Spooky Land" width="320" height="180" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
+                        <div class="card-title">Moto X3M Spooky Land</div>
+                     </a>
+                </div>
+            
+                <div class="card">
+                     <a href="/subway-surfers-monaco.html">
+                        <img src="https://watchdocumentariesgames.github.io/images/subway-surfers-monaco.png" alt="Subway Surfers Monaco" width="320" height="180" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
+                        <div class="card-title">Subway Surfers Monaco</div>
+                     </a>
+                </div>
+            
+                <div class="card">
+                     <a href="/perfect-peel.html">
+                        <img src="https://watchdocumentariesgames.github.io/images/perfect-peel.png" alt="Perfect Peel" width="320" height="180" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
+                        <div class="card-title">Perfect Peel</div>
+                     </a>
+                </div>
+            
+                <div class="card">
+                     <a href="/detective-dan.html">
+                        <img src="https://watchdocumentariesgames.github.io/images/detective-dan.png" alt="Detective Dan" width="320" height="180" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
+                        <div class="card-title">Detective Dan</div>
+                     </a>
+                </div>
+            
+                <div class="card">
+                     <a href="/lands-of-blight.html">
+                        <img src="https://watchdocumentariesgames.github.io/images/lands-of-blight.png" alt="Lands Of Blight" width="320" height="180" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
+                        <div class="card-title">Lands Of Blight</div>
+                     </a>
+                </div>
+            
+                <div class="card">
+                     <a href="/zeepkist-crash-2d.html">
+                        <img src="https://watchdocumentariesgames.github.io/images/zeepkist-crash-2d.png" alt="Zeepkist Crash 2D" width="320" height="180" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
+                        <div class="card-title">Zeepkist Crash 2D</div>
+                     </a>
+                </div>
+            
+                <div class="card">
+                     <a href="/electron-dash.html">
+                        <img src="https://watchdocumentariesgames.github.io/images/electron-dash.png" alt="Electron Dash" width="320" height="180" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
+                        <div class="card-title">Electron Dash</div>
+                     </a>
+                </div>
+            
+                <div class="card">
+                     <a href="/blumgi-rocket.html">
+                        <img src="https://watchdocumentariesgames.github.io/images/blumgi-rocket.png" alt="Blumgi Rocket" width="320" height="180" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
+                        <div class="card-title">Blumgi Rocket</div>
+                     </a>
+                </div>
+            
+                <div class="card">
+                     <a href="/dark-runner.html">
+                        <img src="https://watchdocumentariesgames.github.io/images/dark-runner.png" alt="Dark Runner" width="320" height="180" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
+                        <div class="card-title">Dark Runner</div>
+                     </a>
+                </div>
+            
+                <div class="card">
+                     <a href="/truck-loader-4.html">
+                        <img src="https://watchdocumentariesgames.github.io/images/truck-loader-4.png" alt="Truck Loader 4" width="320" height="180" loading="lazy" decoding="async" onload="this.classList.add('loaded')">
+                        <div class="card-title">Truck Loader 4</div>
+                     </a>
+                </div>
+            
+        </div>
+    </main>
+</div>
+<footer>
+    <div class="ft-links">
+        <a href="/privacy-policy.html">Privacy</a>
+        <a href="/contact.html">Contact</a>
+        <a href="/dmca.html">DMCA</a>
+    </div>
+    <p class="footer-desc">Dive into Watch Documentaries Games: the premier platform for unblocked simulation and strategy. Play instantly on Chromebooks with zero downloads.</p>
+    <p>&copy; 2025 Watch Documentaries Games.</p>
+    <div style="margin-top:20px;opacity:0.5"><!--LiveInternet counter--><a href="https://www.liveinternet.ru/click" target="_blank"><img id="licnt51DC" width="0" height="0" style="border:0" title="LiveInternet" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7" alt=""></a><script>(function(d,s){d.getElementById("licnt51DC").src=
+"https://counter.yadro.ru/hit?t45.1;r"+escape(d.referrer)+
+((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+(s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+";h"+escape(d.title.substring(0,150))+";"+Math.random()})
+(document,screen)</script><!--/LiveInternet--></div>
+</footer>
+<script>
+    if('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js');
+    document.getElementById('burger').onclick=()=>document.getElementById('sidebar').classList.toggle('active');
+    document.getElementById('overlay').onclick=function(){this.style.display='none';document.getElementById('frame').src=document.getElementById('frame').dataset.src};
+    document.getElementById('fs').onclick=()=>{const b=document.getElementById('frameBox');document.fullscreenElement?document.exitFullscreen():b.requestFullscreen()};
+    document.getElementById('share').onclick=()=>{navigator.share?navigator.share({title:document.title,url:location.href}):navigator.clipboard.writeText(location.href)};
+    
+    const search=document.getElementById('search'), box=document.getElementById('search-drop');
+    let idx=null;
+    const loadS=async()=>{if(!idx){idx=await(await fetch('/search.json')).json()}};
+    search.onfocus=loadS;
+    search.oninput=()=>{
+        const v=search.value.toLowerCase().trim();
+        box.innerHTML=''; box.style.display=v.length>1?'block':'none';
+        if(!idx||v.length<2)return;
+        const r=idx.filter(g=>g.t.toLowerCase().includes(v)).slice(0,8);
+        r.forEach(g=>{const a=document.createElement('a');a.href='/'+(g.i)+(true?'.html':'/');a.textContent=g.t;box.appendChild(a)});
+        if(!r.length)box.innerHTML='<div style="padding:10px;text-align:center;color:#777">No results</div>';
+    };
+    document.onclick=e=>{if(!search.contains(e.target))box.style.display='none'};
+</script>
+</body>
+</html>
